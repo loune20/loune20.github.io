@@ -1,0 +1,96 @@
+#map {
+	height: 500px;
+	}
+
+
+
+
+
+
+
+/*--- old CSS ---*/
+
+header, footer, section, article, aside {
+	background: #70D2ED;
+	/*couleur de fond de header, footer, section, article, aside*/
+	border-radius: 0.5em;
+	margin: 2em;
+	color: white;
+	/*couleur de police de header, footer, section, article, aside*/
+	font: 1em/2em;
+	padding: 0.5em 1em;
+/*propriétés CSS de header, footer, section, article, aside*/
+	border: 7px white double;
+	box-shadow: 6px 6px 0px white;}
+	
+	
+body {
+	padding-left: 11em;
+	font-family: Georgia, "Times New Roman",
+		Times, serif;
+	color: white;
+	/*couleur de police dans le corps*/
+	background-color: #000033 
+	/*couleur de fond dans le corps*/ }
+/*propriétés CSS de body*/
+	
+ul.navbar {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+	position: absolute;
+	top: 2em;
+	left: 1em;
+	width: 9em }
+/*propriétés CSS de la liste-barre de menu*/
+
+ul.navbar li {
+	background: #000033;
+	/*couleur de fond de la liste-barre de menu*/
+	margin: 0.5em 0;
+	padding: 0.3em;
+	border-right: 1em solid #70D2ED }	
+/*propriétés CSS de la liste-barre de menu*/
+
+ul.navbar a {
+	text-decoration: none }
+/*décoration (ou non) de la liste-barre de menu*/
+
+header, footer {
+	text-align:center;
+	clear:both; }
+/*propriétés CSS de header et footer*/
+	
+section {
+	float: left;
+	width: 50%; }
+/*propriétés CSS de section*/
+	
+aside {
+	float: left;
+	width: 30%; }
+/*propriétés CSS de aside*/
+	
+h1 {
+	font-family: Helvetica, Geneva, Arial,
+		SunSans-Regular, sans-serif }
+/*propriétés CSS de h1*/
+	
+a:link {
+	color: white }
+/*couleur des liens non visités*/
+	
+a:visited {
+	color: #70D2ED }
+/*couleur des liens visités*/
+
+address {
+	margin-top: 1em;
+	padding-top: 1em;
+	border-top: thin dotted }
+/*propriétés CSS de adress*/	
+
+nav	{
+	position: absolute;
+		left: 0px;
+		yop: 0px; }
