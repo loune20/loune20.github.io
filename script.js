@@ -8,7 +8,7 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     tileSize: 512,
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoibG91bmUyMCIsImEiOiJjbDJlcHhscGgwMDFlM2xuc240bDN5ZWg3In0.14XrXfbzn314BZiOP93tLg',
-    layers: [markers]
+    layers: [psychologues, psy_et_neuro]
 }).addTo(map);
 //var info_popup = L.popup().setLatLng([51.540, -0.12]).setContent("Point info !").openOn(map);
 
@@ -28,13 +28,13 @@ var ico_psycho = L.icon({
 
 var psycho_001 = L.marker([51.490, -0.08]).bindPopup("a");
 var psycho_002 = L.marker([51.485, -0.075]).bindPopup("b");
-var maelfloch = L.marker([48.12248, -1.70577], {icon: ico_psycho}).bindPopup("<b>Maël Le Floch</b><br>10, rue de Lorraine (Rennes)");
+var psycho_003 = L.marker([48.12248, -1.70577], {icon: ico_psycho}).bindPopup("<b>Prénom Nom de famille</b><br>10 rue adresse (Ville)");
 
 var psyneuro_001 = L.marker([51.480, -0.07], {icon: ico_psy_et_neuro}).bindPopup("c");
 var psyneuro_002 = L.marker([51.475, -0.065], {icon: ico_psy_et_neuro}).bindPopup("d");
 
-var psychologues = L.layerGroup([marker2, marker3, maelfloch]).addTo(map);
-var psy_et_neuro = L.layerGroup([marker4, marker5]).addTo(map);
+var psychologues = L.layerGroup([psycho_001, psycho_002, psycho_003]).addTo(map);
+var psy_et_neuro = L.layerGroup([psyneuro_001, psyneuro_002]).addTo(map);
 
 
 
