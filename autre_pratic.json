@@ -1,0 +1,21 @@
+[
+    {
+		"lat": 45.7812,
+		"long": 4.80699,
+		"text": "Seraphin Odile",
+		"cat": "Ergotherapeute"
+	},
+	{
+		"lat": 45.34167,
+		"long": 5.97761,
+		"text": "Moreau Blocier Fleur",
+		"cat": "Psychomotricien"
+	},
+
+	{
+		"lat": 45.33558,
+		"long": 5.62078,
+		"text": "Sottoriva Julie",
+		"cat": "Psychomotricien"
+	}
+]

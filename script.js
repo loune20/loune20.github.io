@@ -1,4 +1,4 @@
-//Map setup
+//Setting up map
 var map = L.map('map', {zoomControl: false}).setView([47,2], 6);
 
 L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
@@ -8,41 +8,87 @@ L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_toke
     tileSize: 512,
     zoomOffset: -1,
     accessToken: 'pk.eyJ1IjoibG91bmUyMCIsImEiOiJjbDJlcHhscGgwMDFlM2xuc240bDN5ZWg3In0.14XrXfbzn314BZiOP93tLg',
-    layers: [psychologues, psy_et_neuro]
 }).addTo(map);
 //var info_popup = L.popup().setLatLng([51.540, -0.12]).setContent("Point info !").openOn(map);
 
-
 //Setting up icons
-var ico_psy_et_neuro = L.icon({
+var psychiatre_neuro_icon = L.icon({
     iconUrl: 'icons/psy_neuro.png',
     iconSize: [40, 40]
 })
 
-var ico_psycho = L.icon({
+var psychologue_icon = L.icon({
+    iconUrl: 'icons/brain.png',
+    iconSize: [35, 35]
+})
+
+var neuropsy_icon = L.icon({
     iconUrl: 'icons/bust.png',
     iconSize: [35, 35]
 })
 
-//Adding markers and layers groups
+var generaliste_icon = L.icon({
+    iconUrl: 'icons/bust.png',
+    iconSize: [35, 35]
+})
 
-var psycho_001 = L.marker([51.490, -0.08]).bindPopup("a");
-var psycho_002 = L.marker([51.485, -0.075]).bindPopup("b");
-var psycho_003 = L.marker([48.12248, -1.70577], {icon: ico_psycho}).bindPopup("<b>Prénom Nom de famille</b><br>10 rue adresse (Ville)");
+var autre_pratic_icon = L.icon({
+    iconUrl: 'icons/bust.png',
+    iconSize: [35, 35]
+})
 
-var psyneuro_001 = L.marker([51.480, -0.07], {icon: ico_psy_et_neuro}).bindPopup("c");
-var psyneuro_002 = L.marker([51.475, -0.065], {icon: ico_psy_et_neuro}).bindPopup("d");
-
-var psychologues = L.layerGroup([psycho_001, psycho_002, psycho_003]).addTo(map);
-var psy_et_neuro = L.layerGroup([psyneuro_001, psyneuro_002]).addTo(map);
-
+//Setting uo layer groups
+var psychiatre_neuro = L.layerGroup();
+var psychologue = L.layerGroup();
+var neuropsy = L.layerGroup();
+var generaliste = L.layerGroup();
+var autre_pratic = L.layerGroup();
 
 
 //Layers and zoom control
 var overlayMaps = {
-    "Psychologues": psychologues,
-    "Psychiatres et neurologues": psy_et_neuro
-}
+    "Psychiatres et neurologues": psychiatre_neuro,
+    "Psychologues": psychologue,
+    "Neuropsychologues": neuropsy,
+    "Médecins généralistes": generaliste,
+    "Autres praticien·nes": autre_pratic
+};
 
 var layerControl = L.control.layers(null, overlayMaps, {collapsed:false, position:'topleft'}).addTo(map);
 var zoomControl = L.control.zoom({position:'bottomleft'}).addTo(map);
+
+//Populate function
+async function populate(categorie) {
+    let json_file = categorie.concat('', ".json");
+    const requestURL = json_file;
+    const request = new Request(requestURL);
+
+    const response = await fetch(request);
+    const categorie_file = await response.json();
+
+    console.log(categorie_file, json_file);
+
+    populateMap(categorie_file, categorie);
+}
+
+function populateMap(obj, categorie) {
+    catt = Function('return ' + categorie)() //see : https://stackoverflow.com/questions/1920867/get-global-variable-dynamically-by-name-string-in-javascript
+    let catt_ico = categorie.concat('', "_icon");
+    catt_ico = Function('return ' + catt_ico)();
+
+    for (let i of obj){
+        let j = L.marker([i.lat, i.long], {icon: catt_ico}).bindPopup(i.text);
+        catt.addLayer(j);
+    }
+    catt.addTo(map);
+
+}
+
+//Main code
+populate("psychiatre_neuro");
+populate("psychologue");
+populate("neuropsy");
+populate("generaliste");
+populate("autre_pratic");
+
+//http://localhost:8000/

@@ -1,0 +1,21 @@
+[
+    {
+		"lat": 47.38543,
+		"long": 8.5441,
+		"text": "Eich-Hochli Dominique",
+		"cat": "Psychiatre"
+	},
+	{
+		"lat": 45.81495,
+		"long": 1.24113,
+		"text": "Sazerat Pierre",
+		"cat": "Psychiatre"
+	},
+
+	{
+		"lat": 49.64015,
+		"long": -1.62846,
+		"text": "Le Goubey Pierre",
+		"cat": "Psychiatre"
+	}
+]

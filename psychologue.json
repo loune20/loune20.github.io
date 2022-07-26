@@ -1,0 +1,21 @@
+[
+    {
+		"lat": 42.6894,
+		"long": 2.91208,
+		"text": "Sevcik Catherine",
+		"cat": "Psychologue"
+	},
+	{
+		"lat": 48.12248,
+		"long": -1.70577,
+		"text": "Le Floch Maël",
+		"cat": "Psychologue"
+	},
+
+	{
+		"lat": 48.86377,
+		"long": 2.34211,
+		"text": "Givet Camille",
+		"cat": "Psychologue"
+	}
+]
